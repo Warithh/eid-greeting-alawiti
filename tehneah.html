@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>عيد فطر سعيد يا علويتي</title>
+  <style>
+    :root {
+      --bg1: #0b1120;
+      --bg2: #1e1b4b;
+      --gold: #f59e0b;
+      --pink: #fb7185;
+      --white: #f8fafc;
+      --muted: #cbd5e1;
+      --glass: rgba(255, 255, 255, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+      color: var(--white);
+      overflow: hidden;
+      background:
+        radial-gradient(1200px 700px at 15% 10%, #1d4ed8 0%, transparent 45%),
+        radial-gradient(900px 600px at 80% 20%, #7e22ce 0%, transparent 45%),
+        linear-gradient(135deg, var(--bg1), var(--bg2));
+    }
+
+    .stars, .stars::before, .stars::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-repeat: repeat;
+      animation: twinkle 9s linear infinite;
+    }
+
+    .stars {
+      background-image:
+        radial-gradient(2px 2px at 30px 40px, #fff, transparent 60%),
+        radial-gradient(2px 2px at 170px 120px, #fff, transparent 60%),
+        radial-gradient(1.6px 1.6px at 250px 220px, #fff, transparent 60%);
+      background-size: 300px 300px;
+      opacity: 0.65;
+    }
+
+    .stars::before {
+      background-image:
+        radial-gradient(1.8px 1.8px at 70px 150px, #fff, transparent 60%),
+        radial-gradient(1.6px 1.6px at 210px 70px, #fff, transparent 60%);
+      background-size: 340px 340px;
+      opacity: 0.35;
+      animation-duration: 13s;
+    }
+
+    .stars::after {
+      background-image:
+        radial-gradient(1.6px 1.6px at 100px 90px, #fff, transparent 60%),
+        radial-gradient(2px 2px at 260px 180px, #fff, transparent 60%);
+      background-size: 380px 380px;
+      opacity: 0.2;
+      animation-duration: 17s;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { transform: translateY(0); opacity: .7; }
+      50% { transform: translateY(-7px); opacity: 1; }
+    }
+
+    .start-screen {
+      text-align: center;
+      z-index: 2;
+      transition: opacity .5s ease, transform .5s ease;
+    }
+
+    .start-screen.hidden {
+      opacity: 0;
+      transform: scale(.95);
+      pointer-events: none;
+    }
+
+    .title {
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      margin-bottom: 1rem;
+      color: #fff;
+      text-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+    }
+
+    .start-btn {
+      border: 0;
+      border-radius: 999px;
+      padding: .95rem 1.5rem;
+      font-weight: 800;
+      font-size: 1rem;
+      cursor: pointer;
+      color: #111827;
+      background: linear-gradient(135deg, #fde68a, #f59e0b);
+      box-shadow: 0 12px 28px rgba(245, 158, 11, .35);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .start-btn:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 15px 35px rgba(245, 158, 11, .4);
+    }
+
+    .card {
+      width: min(92vw, 760px);
+      border-radius: 24px;
+      background: var(--glass);
+      border: 1px solid rgba(255, 255, 255, .18);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 24px 55px rgba(0, 0, 0, .35);
+      padding: 2rem 1.4rem;
+      text-align: center;
+      position: fixed;
+      z-index: 3;
+      opacity: 0;
+      transform: translateY(35px) scale(.96);
+      pointer-events: none;
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .card.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    h1 {
+      margin: .2rem 0 .6rem;
+      font-size: clamp(1.5rem, 4vw, 2.3rem);
+    }
+
+    .name { color: var(--pink); }
+
+    .message {
+      max-width: 630px;
+      margin: 0 auto;
+      color: var(--muted);
+      line-height: 2;
+      font-size: clamp(1rem, 2.4vw, 1.12rem);
+      min-height: 120px;
+    }
+
+    .signature {
+      margin-top: 1rem;
+      color: #fda4af;
+      font-weight: 600;
+    }
+
+    .photo-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: .2rem 0 .9rem;
+    }
+
+    .photo-frame {
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      padding: 6px;
+      background: linear-gradient(135deg, #fde68a, #fb7185);
+      box-shadow: 0 12px 28px rgba(251, 113, 133, 0.35);
+      display: block;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.85);
+      background: #111827;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+
+  <section class="start-screen" id="startScreen">
+    <h2 class="title">مفاجأة عيد فطر خاصة لـ علويتي ✨</h2>
+    <button class="start-btn" id="openBtn">اضغطي هنا لعرض التهنئة</button>
+  </section>
+
+  <main class="card" id="greetingCard">
+    <div class="photo-wrap">
+      <div class="photo-frame">
+        <img id="belovedPhoto" alt="صورة علويتي" src="file:///C:/Users/user/.cursor/projects/c-Users-user-Desktop/assets/c__Users_user_AppData_Roaming_Cursor_User_workspaceStorage_b3ff013b6ddf07dfe3c76e14a38b8f0e_images_WhatsApp_Image_2026-03-17_at_3.45.56_PM-b083b2c2-c753-4378-adb8-5f26fba16950.png" />
+      </div>
+    </div>
+    <h1>عيد فطر سعيد يا <span class="name">علويتي</span> 💖</h1>
+    <p class="message" id="typedText"></p>
+    <div class="signature">من قلبي.. كل عام وأنتِ سعادتي 🌙</div>
+  </main>
+
+  <script>
+    const message =
+      "كل عام وأنتِ نور أيامي، وأجمل نعمة في حياتي. " +
+      "أسأل الله أن يملأ قلبك فرحا، ويجعل عيدك سعادة لا تنتهي. " +
+      "عيد فطر مبارك يا أغلى من أحببت.";
+
+    const openBtn = document.getElementById("openBtn");
+    const startScreen = document.getElementById("startScreen");
+    const greetingCard = document.getElementById("greetingCard");
+    const typedText = document.getElementById("typedText");
+    let typingTimer;
+
+    function typeMessage(text, speed = 40) {
+      clearInterval(typingTimer);
+      typedText.textContent = "";
+      let i = 0;
+      typingTimer = setInterval(() => {
+        typedText.textContent += text[i];
+        i++;
+        if (i >= text.length) clearInterval(typingTimer);
+      }, speed);
+    }
+
+    openBtn.addEventListener("click", () => {
+      startScreen.classList.add("hidden");
+      setTimeout(() => {
+        greetingCard.classList.add("show");
+        typeMessage(message);
+      }, 400);
+    });
+  </script>
+</body>
+</html>
